@@ -40,29 +40,49 @@ public class MonsterRoom extends Room{
         System.out.println("You found the monster! Prepare to fight.");
         System.out.println(monster);
 
-        String health = "\n HEALTH: ============================================="
+        String health = "\nHEALTH: =============================================";
+        int damage = 4;
 
         Runner.gameOff();
         Scanner in2 = new Scanner(System.in);
+        System.out.println(health);
         System.out.println("Type your attack move");
         String input = in2.nextLine();
-        while(!input.equals("I give up")){
+        while(!input.equals("I give up") && health.length() > 8){
 
             System.out.println("Type your attack move");
             if(input.equals("punch")){
-                health = health.substring(0, health.length()-4);
+                damage = 4;
+                health = health.substring(0, health.length()-damage);
+                System.out.println(monster);
+                System.out.println(health);
+                System.out.println("You did "+damage+" damage!");
             }
             else if(input.equals("kick")){
-                health = health.substring(0, health.substring(0, health.length()-4));
+                damage = 6;
+                health = health.substring(0, health.length()-damage);
+                System.out.println(monster);
+                System.out.println(health);
+                System.out.println("You did "+damage+" damage!");
+            }
+            else if(input.equals("insult")){
+                damage = 12;
+                System.out.println("Super effective!");
+                health = health.substring(0, health.length()-damage);
+                System.out.println(monster);
+                System.out.println(health);
+                System.out.println("You did "+damage+" damage!");
             }
             else{
                 System.out.println("That isn't a move...");
             }
-            System.out.println(monster);
-            System.out.println(health);
+
             System.out.println("Type your attack move");
             input = in2.nextLine();
         }
+
+        System.out.println("You beat it!");
+        Runner.gameOn = true;
 
 
     }

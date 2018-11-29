@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Runner {
 	
 
-	private static boolean gameOn = true;
+	public static boolean gameOn = true;
 	
 	public static void main(String[] args)
 	{
@@ -31,9 +31,11 @@ public class Runner {
 //		building[x][y] = new WinningRoom(x, y);
 
 		//Create a random winning room.
-		int x2 = (int)(Math.random()*building.length);
-		int y2 = (int)(Math.random()*building.length);
-		building[x2][y2] = new MonsterRoom(x2, y2);
+//		int x2 = (int)(Math.random()*building.length);
+//		int y2 = (int)(Math.random()*building.length);
+//		building[x2][y2] = new MonsterRoom(x2, y2);
+
+		building[1][1] = new MonsterRoom(1, 1);
 		 
 		 //Setup player 1 and the input scanner
 		Person player1 = new Person("FirstName", "FamilyName", 0,0);
